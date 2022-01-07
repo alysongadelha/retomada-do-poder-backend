@@ -1,87 +1,97 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PoderAPI.Data.Interfaces;
+using PoderAPI.Model;
+using PoderAPI.Model.InputModels;
+using System.Collections.Generic;
 
 namespace PoderAPI.Controllers
 {
     public class CharVampireController : Controller
     {
-
         private ICharVampireRepository _charVampireRepository;
 
-        // GET: CharacterController
-        public ActionResult Index()
+        public CharVampireController(ICharVampireRepository charVampireRepository)
         {
-            return View();
+            _charVampireRepository = charVampireRepository;
         }
 
-        // GET: CharacterController/Details/5
-        public ActionResult Details(int id)
+
+        //GET: api/<CharVampireController>
+        [HttpGet("api/CharVampireController")]
+        public IActionResult Get()
         {
-            return View();
+            var vampires = _charVampireRepository.GetCharVampire();
+            return Ok(vampires);
         }
 
-        // GET: CharacterController/Create
-        public ActionResult Create()
+        // GET: api/<CharVampireController>/5
+        [HttpGet("api/CharVampireController/{id}")]
+        public ActionResult Get(string id)
         {
-            return View();
+            var vampire = _charVampireRepository.GetCharVampireByID(id);
+            if (vampire == null) return NotFound();
+            return Ok(vampire);
         }
 
-        // POST: CharacterController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        // POST: api/<CharVampireController>
+        [HttpPost("api/CharVampireController")]
+        public IActionResult Post([FromBody] CharVampireInputModel newVampire )
         {
+            var vampire = new CharVampire(newVampire.Clan, newVampire.Generation, newVampire.Filiation,
+                newVampire.Name, newVampire.Player, newVampire.Resume, newVampire.SymbolLink,
+                newVampire.ImgLink);
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                _charVampireRepository.AddCharVampire(vampire);
+                return Created("", newVampire);
             }
             catch
             {
-                return View();
+                return BadRequest();
             }
         }
 
-        // GET: CharacterController/Edit/5
-        public ActionResult Edit(int id)
+        // PUT: api/<CharVampireController>/5
+        [HttpPut("api/CharVampireController/{id}")]
+        public IActionResult Put(string id, [FromBody] CharVampireInputModel updateVampire)
         {
-            return View();
-        }
+            var vampire = _charVampireRepository.GetCharVampireByID(id);
 
-        // POST: CharacterController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
+            if (vampire == null) return NotFound();
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                vampire.UpdatingCharVampire(updateVampire.Clan, updateVampire.Name, updateVampire.Player, 
+                updateVampire.Resume, updateVampire.SymbolLink, updateVampire.ImgLink,updateVampire.Filiation, 
+                updateVampire.Generation);
+
+                _charVampireRepository.UpdateCharVampire(id, vampire);
+
+                return Ok(vampire);
             }
             catch
             {
-                return View();
+                return BadRequest();
             }
+
         }
 
-        // GET: CharacterController/Delete/5
-        public ActionResult Delete(int id)
+
+
+        // GET: CharVampireController/Delete/5
+        public IActionResult Delete(string id)
         {
-            return View();
+            var vampire = _charVampireRepository.GetCharVampireByID(id);
+
+            if (vampire == null) return NotFound();
+
+            _charVampireRepository.DeleteCharVampire(vampire.Id);
+
+            return NoContent();
         }
 
-        // POST: CharacterController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
     }
 }

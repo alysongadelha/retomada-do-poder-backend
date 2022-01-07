@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PoderAPI.Model
 {
-    public class Character
+    public abstract class Character
     {
         protected Character(string name, string player, string resume, string imgLink, string symbolLink)
         {
@@ -21,23 +21,34 @@ namespace PoderAPI.Model
             Death = null;
         }
 
-        protected string Id { get; set; }
+        public string Id { get; set; }
 
         [Required(ErrorMessage = "Usuário é obrigatório")]
-        protected string Name { get; set; }
+        public string Name { get; set; }
 
-        protected string Player { get; set; }
+        public string Player { get; set; }
 
-        protected string Resume { get; set; }
+        public string Resume { get; set; }
 
-        protected string ImgLink { get; set; }
+        public string ImgLink { get; set; }
 
-        protected string SymbolLink { get; set; }
+        public string SymbolLink { get; set; }
 
-        protected bool Dead { get; set; }
+        public bool Dead { get; set; }
 
-        protected DateTime Register { get; set; }
+        public DateTime Register { get; set; }
 
-        protected DateTime? Death { get; set; }
+        public DateTime? Death { get; set; }
+
+        public void UpdateCharacter(string name, string resume, string player, string imgLink, string symbolLink, bool? dead = false)
+        {
+            Name = name;
+            Resume = resume;
+            Player = player;
+            ImgLink = imgLink;
+            SymbolLink = symbolLink;
+            Dead = dead ?? false;   
+            Death = Dead ? DateTime.Now : null;
+        }
     }
 }

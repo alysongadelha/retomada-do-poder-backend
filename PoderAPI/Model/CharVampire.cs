@@ -23,5 +23,19 @@ namespace PoderAPI.Model
         public int? Generation { get; private set; }
 
         public int Filiation { get; private set; }
+
+        public void UpdatingCharVampire(string name, string resume, string player, string imgLink, string symbolLink, string clan, int filiation, int? generation, bool? dead = false)
+        {
+            Name = name;
+            Resume = resume;
+            Player = player;
+            ImgLink = imgLink;
+            SymbolLink = symbolLink;
+            Clan = clan;
+            Filiation = filiation;
+            Generation = generation ?? null;
+            Dead = dead ?? false;
+            Death = Dead ? DateTime.Now : null;
+        }
     }
 }

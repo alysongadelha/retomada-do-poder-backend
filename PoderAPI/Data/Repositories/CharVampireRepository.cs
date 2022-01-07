@@ -1,42 +1,47 @@
-﻿using PoderAPI.Data.Interfaces;
+﻿using MongoDB.Driver;
+using PoderAPI.Data.Configurations;
+using PoderAPI.Data.Interfaces;
 using PoderAPI.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PoderAPI.Data.Repositories
 {
     public class CharVampireRepository : ICharVampireRepository
     {
+        private readonly IMongoCollection<CharVampire> _charVampire;
+
+        public CharVampireRepository(IDatabaseConfig databseConfig)
+        {
+            var c = new MongoClient(databseConfig.ConnectionString);
+            var d = c.GetDatabase(databseConfig.DatabaseName);
+
+            _charVampire = d.GetCollection<CharVampire>("charVampire");
+        }
+
         public void AddCharVampire(CharVampire charVampire)
         {
-            throw new NotImplementedException();
+            _charVampire.InsertOne(charVampire);
         }
 
         public void DeleteCharVampire(string id)
         {
-            throw new NotImplementedException();
+            _charVampire.DeleteOne(vampire => vampire.Id == id);
         }
 
         public IEnumerable<CharVampire> GetCharVampire()
         {
-            throw new NotImplementedException();
+            return _charVampire.Find(vampire => true).ToList();
         }
 
         public CharVampire GetCharVampireByID(string id)
         {
-            throw new NotImplementedException();
+            return _charVampire.Find(vampire => vampire.Id == id).FirstOrDefault();
         }
 
-        public void Save()
+        public void UpdateCharVampire(string id, CharVampire charVampire)
         {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateCharVampire(CharVampire charVampire)
-        {
-            throw new NotImplementedException();
+            _charVampire.ReplaceOne(vampire => vampire.Id == id, charVampire);
         }
     }
 }

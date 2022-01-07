@@ -11,7 +11,6 @@ C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\Microsoft.OpenApi.dl
 C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.csproj.AssemblyReference.cache
 C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.AssemblyInfoInputs.cache
 C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.AssemblyInfo.cs
@@ -27,3 +26,19 @@ C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.dll
 C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\ref\PoderAPI.dll
 C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.pdb
 C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.genruntimeconfig.cache
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\DnsClient.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\MongoDB.Bson.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\MongoDB.Driver.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\MongoDB.Driver.Core.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\MongoDB.Libmongocrypt.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\SharpCompress.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\linux\native\libsnappy64.so
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\linux\native\libzstd.so
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\osx\native\libsnappy64.dylib
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\osx\native\libzstd.dylib
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\win\native\libzstd.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\win\native\snappy32.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\win\native\snappy64.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
+C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll

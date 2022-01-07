@@ -16,10 +16,7 @@ namespace PoderAPI.Data.Interfaces
 
         void DeleteCharVampire(string id);
 
-        void UpdateCharVampire(CharVampire charVampire);
-
-        void Save();
-
+        void UpdateCharVampire(string id, CharVampire charVampire);
 
     }
 }
