@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PoderAPI.Model
 {
@@ -26,8 +23,11 @@ namespace PoderAPI.Model
         [Required(ErrorMessage = "Usuário é obrigatório")]
         public string Name { get; set; }
 
+        [Required]
         public string Player { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string Resume { get; set; }
 
         public string ImgLink { get; set; }

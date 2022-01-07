@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PoderAPI.Model
 {
@@ -16,12 +17,14 @@ namespace PoderAPI.Model
             Clan = clan;
             Generation = generation;
             Filiation = filiation;
-        }  
-
+        }
+        [Required]
         public string Clan { get; private set; }
 
         public int? Generation { get; private set; }
 
+        [Required]
+        [Range(1, 3)]
         public int Filiation { get; private set; }
 
         public void UpdatingCharVampire(string name, string resume, string player, string imgLink, string symbolLink, string clan, int filiation, int? generation, bool? dead = false)

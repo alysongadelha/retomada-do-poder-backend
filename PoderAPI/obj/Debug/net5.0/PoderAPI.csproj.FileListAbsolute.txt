@@ -42,3 +42,4 @@ C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\win\native\
 C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\ltm-projects\retomada-do-poder\PoderAPI\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+C:\ltm-projects\retomada-do-poder\PoderAPI\obj\Debug\net5.0\PoderAPI.csproj.AssemblyReference.cache
