@@ -65,7 +65,7 @@ namespace PoderAPI.Controllers
             {
                 vampire.UpdatingCharVampire(updateVampire.Clan, updateVampire.Name, updateVampire.Player, 
                 updateVampire.Resume, updateVampire.SymbolLink, updateVampire.ImgLink,updateVampire.Filiation, 
-                updateVampire.Generation);
+                updateVampire.Generation, updateVampire.Dead);
 
                 _charVampireRepository.UpdateCharVampire(id, vampire);
 
