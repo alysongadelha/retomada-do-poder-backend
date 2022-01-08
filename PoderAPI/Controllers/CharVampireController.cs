@@ -63,9 +63,9 @@ namespace PoderAPI.Controllers
 
             try
             {
-                vampire.UpdatingCharVampire(updateVampire.Clan, updateVampire.Name, updateVampire.Player, 
-                updateVampire.Resume, updateVampire.SymbolLink, updateVampire.ImgLink,updateVampire.Filiation, 
-                updateVampire.Generation);
+                vampire.UpdatingCharVampire(updateVampire.Name, updateVampire.Resume, updateVampire.Player, 
+                updateVampire.ImgLink, updateVampire.SymbolLink, updateVampire.Clan,updateVampire.Filiation, 
+                updateVampire.Generation, updateVampire.Dead);
 
                 _charVampireRepository.UpdateCharVampire(id, vampire);
 
@@ -81,6 +81,7 @@ namespace PoderAPI.Controllers
 
 
         // GET: CharVampireController/Delete/5
+        [HttpDelete("api/CharVampireController/{id}")]
         public IActionResult Delete(string id)
         {
             var vampire = _charVampireRepository.GetCharVampireByID(id);
