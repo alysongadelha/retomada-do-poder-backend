@@ -39,6 +39,11 @@ namespace PoderAPI.Data.Repositories
             return _charVampire.Find(vampire => vampire.Id == id).FirstOrDefault();
         }
 
+        public IEnumerable<CharVampire> GetCharVampiresByFlag(int filiation)
+        {
+            return _charVampire.Find(vampire => vampire.Filiation == filiation).ToList();
+        }
+
         public void UpdateCharVampire(string id, CharVampire charVampire)
         {
             _charVampire.ReplaceOne(vampire => vampire.Id == id, charVampire);

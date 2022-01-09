@@ -18,5 +18,7 @@ namespace PoderAPI.Data.Interfaces
 
         void UpdateCharVampire(string id, CharVampire charVampire);
 
+        IEnumerable<CharVampire> GetCharVampiresByFlag(int filiation);
+
     }
 }

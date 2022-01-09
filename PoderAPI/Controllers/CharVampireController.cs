@@ -27,11 +27,27 @@ namespace PoderAPI.Controllers
 
         // GET: api/<CharVampireController>/5
         [HttpGet("api/CharVampireController/{id}")]
-        public ActionResult Get(string id)
+        public IActionResult Get(string id)
         {
             var vampire = _charVampireRepository.GetCharVampireByID(id);
             if (vampire == null) return NotFound();
             return Ok(vampire);
+        }
+
+        //GET
+        [HttpGet("api/CharVampireController/filiation/{filiation}")]
+        public IActionResult Get(int filiation)
+        {
+            try
+            {
+                var vampires = _charVampireRepository.GetCharVampiresByFlag(filiation);
+                if (vampires == null) return NotFound();
+                return Ok(vampires);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: api/<CharVampireController>
