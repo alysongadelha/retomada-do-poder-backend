@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using PoderAPI.Data.Configurations;
 using PoderAPI.Data.Interfaces;
+using PoderAPI.Helpers;
 using PoderAPI.Model;
 using System;
 using System.Collections.Generic;
@@ -39,9 +40,17 @@ namespace PoderAPI.Data.Repositories
             return _charVampire.Find(vampire => vampire.Id == id).FirstOrDefault();
         }
 
-        public IEnumerable<CharVampire> GetCharVampiresByFlag(int filiation)
+        public PagedList<CharVampire> GetCharVampiresByFlag(int filiation, CharacterParameters characterParameters)
         {
-            return _charVampire.Find(vampire => vampire.Filiation == filiation).ToList();
+            var vampires = _charVampire.Find(v => v.Filiation == filiation).SortByDescending(v => v.Register).ToList();
+            return PagedList<CharVampire>.ToPageList(vampires, characterParameters.PageNumber, characterParameters.PageSize);
+
+            //return _charVampire.Find(vampire => vampire.Filiation == filiation)
+            //    .SortByDescending(vampire => vampire.Register)
+            //    .Skip((characterParameters.PageNumber - 1) * characterParameters.PageSize)
+            //    .Limit(characterParameters.PageSize)
+            //    .ToList();
+              
         }
 
         public void UpdateCharVampire(string id, CharVampire charVampire)

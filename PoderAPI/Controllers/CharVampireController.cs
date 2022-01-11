@@ -36,11 +36,11 @@ namespace PoderAPI.Controllers
 
         //GET
         [HttpGet("api/CharVampireController/filiation/{filiation}")]
-        public IActionResult Get(int filiation)
+        public IActionResult Get(int filiation, [FromQuery] CharacterParameters characterParameters)
         {
             try
             {
-                var vampires = _charVampireRepository.GetCharVampiresByFlag(filiation);
+                var vampires = _charVampireRepository.GetCharVampiresByFlag(filiation, characterParameters);
                 if (vampires == null) return NotFound();
                 return Ok(vampires);
             }
