@@ -1,8 +1,6 @@
-﻿using PoderAPI.Model;
-using System;
+﻿using PoderAPI.Helpers;
+using PoderAPI.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PoderAPI.Data.Interfaces
 {
@@ -18,7 +16,7 @@ namespace PoderAPI.Data.Interfaces
 
         void UpdateCharVampire(string id, CharVampire charVampire);
 
-        IEnumerable<CharVampire> GetCharVampiresByFlag(int filiation);
+        PagedList<CharVampire> GetCharVampiresByFlag(int filiation, CharacterParameters characterParameters);
 
     }
 }
