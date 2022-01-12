@@ -18,9 +18,13 @@ namespace PoderAPI.Model
             Generation = generation;
             Filiation = filiation;
         }
-        [Required]
+        [Required(ErrorMessage = "Clan is required", AllowEmptyStrings = true)]
+        [Display(Name = "Clan name")]
         public string Clan { get; private set; }
 
+        [Required(ErrorMessage = "Generation is required")]
+        [Display(Name = "Character generation")]
+        [Range(3, 15)]
         public int? Generation { get; private set; }
 
         [Required]

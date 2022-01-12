@@ -20,13 +20,16 @@ namespace PoderAPI.Model
 
         public string Id { get; set; }
 
-        [Required(ErrorMessage = "Usuário é obrigatório")]
+        [Required(ErrorMessage = "Character name is required.", AllowEmptyStrings = false)]
+        [Display(Name = "Character name")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Player name is required.", AllowEmptyStrings = true)]
+        [Display(Name = "Player name")]
         public string Player { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Character history resume.", AllowEmptyStrings = false)]
+        [Display(Name = "Character resume")]
         [StringLength(100)]
         public string Resume { get; set; }
 
@@ -36,19 +39,10 @@ namespace PoderAPI.Model
 
         public bool Dead { get; set; }
 
+        [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
         public DateTime Register { get; set; }
 
+        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime? Death { get; set; }
-
-        public void UpdateCharacter(string name, string resume, string player, string imgLink, string symbolLink, bool? dead = false)
-        {
-            Name = name;
-            Resume = resume;
-            Player = player;
-            ImgLink = imgLink;
-            SymbolLink = symbolLink;
-            Dead = dead ?? false;   
-            Death = Dead ? DateTime.Now : null;
-        }
     }
 }
