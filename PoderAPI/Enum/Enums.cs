@@ -9,7 +9,7 @@
             Independentes
         }
 
-        public enum ClassesTormenta
+        public enum ClassTormenta20
         {
             Arcanista,
             Bárbaro,
